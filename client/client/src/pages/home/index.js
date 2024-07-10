@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import React from "react";
 import { useState, useEffect } from "react";
+import MessagesReceived from "./messages";
 
 const Home = ({ username, setUsername, room, setRoom, socket }) => {
   const [open, setOpen] = React.useState(false);
@@ -45,13 +46,17 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
       <br></br>
       <img src="../logo.png" alt=";) RECHAT" />
 
+      {/* messages box */}
       <div className={styles.grid2x2}>
         <div className={styles.box}>
           <div className={styles.messageBox}>
+            <MessagesReceived socket={socket} />
+
             <input type="text" placeholder="Type in message..." />
           </div>
         </div>
 
+        {/* Settings box */}
         <div className={styles.box}>
           <br></br>
           <br></br>
@@ -109,6 +114,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
         </div>
       </div>
 
+      {/* Change name Dialog */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Enter Your Username</DialogTitle>
         <DialogContent>

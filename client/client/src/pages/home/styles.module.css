@@ -35,6 +35,24 @@ h2 {
     align-items: center;
 }
 
+/* Messages */
+
+  .message {
+    background: rgb(250, 238, 160);
+    border-radius: 6px;
+    margin-bottom: 24px;
+    max-width: 600px;
+    padding: 12px;
+  }
+  .msgMeta {
+    color: rgb(117, 117, 117);
+    font-size: 0.75rem;
+  }
+  .msgText {
+    color: #000000;
+  }
+  
+
 .messageBox {
     margin-top: auto;
     padding: 1rem;
