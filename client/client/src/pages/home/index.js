@@ -9,12 +9,12 @@ import TextField from "@mui/material/TextField";
 import React from "react";
 import { useState, useEffect } from "react";
 import MessagesReceived from "./messages";
+import SendMessage from './sendmessage';
 
 const Home = ({ username, setUsername, room, setRoom, socket }) => {
   const [open, setOpen] = React.useState(false);
 
   // room logic
-
   const joinRoom = () => {
     if (room !== "" && username !== "") {
       socket.emit("join_room", { username, room });
@@ -51,8 +51,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
         <div className={styles.box}>
           <div className={styles.messageBox}>
             <MessagesReceived socket={socket} />
-
-            <input type="text" placeholder="Type in message..." />
+            <SendMessage socket={socket} username={username} room={room} />
           </div>
         </div>
 
