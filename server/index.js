@@ -101,7 +101,7 @@ io.on("connection", (socket) => {
   });
 
   // Handle user disconnect
-  socket.on("disconnect", () => {
+  socket.on("end-chat", () => {
     console.log(`User disconnected ${socket.id}`);
 
     // Remove user from allUsers array

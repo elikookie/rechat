@@ -18,6 +18,10 @@ const Messages = ({ socket }) => {
         ]);
       });
   
+      socket.on('end-chat', (data) => {
+        messagesRecieved = 0;
+      });
+
       // Remove event listener on component unmount
       return () => socket.off('receive_message');
     }, [socket]);

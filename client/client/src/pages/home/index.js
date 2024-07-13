@@ -21,6 +21,11 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
     }
   };
 
+  const endChat = () => {
+      const __createdtime__ = Date.now();
+      socket.emit("end-chat", { username, room, __createdtime__ });
+  };
+
   // Username dialogue logic
   useEffect(() => {
     if (!username) {
@@ -108,7 +113,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
             <button type="button" onClick={handleClickOpen}>
               Change name
             </button>
-            <button type="button">End Chat</button>
+            <button type="button" onClick={endChat}>End Chat</button>
           </div>
         </div>
       </div>
